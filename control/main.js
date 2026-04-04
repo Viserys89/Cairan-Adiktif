@@ -5,7 +5,7 @@ loginForm.addEventListener("submit", function (event) {
   // Logika pengecekan email dan arah redirect
   if (emailInput === "host") {
     // Ganti URL ini sesuai dengan path/lokasi file host kamu
-    window.location.href = "../host/index.html";
+    window.location.href = "..Cairan-Adiktif/host/index.html";
   } else if (emailInput === "admin") {
     // Ganti URL ini sesuai dengan path/lokasi file admin kamu
     window.location.href = "../admin/index.html";
