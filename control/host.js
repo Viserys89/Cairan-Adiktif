@@ -133,21 +133,6 @@ function checkFiles(input) {
 
 // Fungsi simulasi kirim laporan
 function submitLaporan(event) {
-  event.preventDefault(); // Mencegah halaman refresh saat tombol submit ditekan
-  
-  // (Nantinya kode untuk fetch/API kirim data ke database ditaruh di sini)
-  
-  alert('Laporan berhasil dikirim! Terima kasih untuk shift hari ini.');
-  
-  // Tutup modal dan reset isi form
-  closeModal();
-  document.getElementById('formLaporan').reset();
-  document.getElementById('fileHelpText').textContent = 'Format: JPG, PNG. Maksimal 5 file foto.';
-  document.getElementById('fileHelpText').classList.remove('file-error');
-}
-
-// Fungsi simulasi kirim laporan
-function submitLaporan(event) {
   event.preventDefault(); // Mencegah halaman refresh
   
   // (Nantinya kode API kirim data ke database ditaruh di sini)
