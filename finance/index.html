@@ -6,300 +6,455 @@
     <meta name="description" content="Finance Dashboard">
     <title>Finance Dashboard</title>
     <link rel="stylesheet" href="../style/finance.css">
-    <link href="https://cdn.boxicons.com/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <img src="../assets/vermil-logo.png" alt="Vermil Logo" class="logo-img">
-                <span>AGENCYAPP</span>
-                <p class="navbar-subtitle">INTERNAL SYSTEM</p>
-            </div>
-            <div class="navbar-right">
-                <span class="user-label">User</span>
-                <span class="user-name">FINANCE</span>
-                <div class="user-avatar">
-                    <i class='bx bxs-user-circle'></i>
+    <div class="dashboard">
+        <header class="topbar">
+            <div class="logo-area" style="display: flex; align-items: center; gap: 12px;">
+                <i class='bx bx-menu menu-toggle' id="mobile-menu-btn" onclick="toggleSidebar()" style="display: none; font-size: 28px; cursor: pointer;"></i>
+                
+                <div class="logo">
+                    <img src="../assets/vermil-logo.png" alt="Vermil Logo" />
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="header">
-            <h1>Finance Dashboard <i class='bx bx-money'></i></h1>
-            <p class="header-subtitle">Verifikasi dan kelola pendapatan host dengan filter dan export data.</p>
-        </div>
+            <div class="profile-section">
+                <div class="profile-text">
+                    <span class="name">Finance</span>
+                    <span class="role">Admin</span>
+                </div>
+                <div class="avatar"></div>
+                <i class="bx bx-chevron-down icon-dropdown"></i>
+            </div>
+        </header>
 
-        <div class="content">
-            <div class="top-section">
-                <div class="card total-card">
-                    <div class="card-icon">
-                        <i class='bx bxs-gem'></i>
+        <div class="main-layout">
+            <aside class="sidebar">
+                <h3 class="menu-title">Menu</h3>
+                <hr class="divider" />
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item active" data-tab="dashboard">
+                            <i class="bx bxs-bar-chart-square nav-icon"></i> Dashboard
+                        </li>
+                        <li class="nav-item" data-tab="penghasilan">
+                            <i class="bx bx-wallet nav-icon"></i> Penghasilan
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="content">
+                <div class="header">
+                    <h1><span class="tab-content-title">Finance Dashboard</span> <i class='bx bx-gem'></i></h1>
+                    <p class="header-subtitle">Verifikasi dan kelola pendapatan host dengan filter dan export data.</p>
+                </div>
+
+                <div class="top-section dashboard-view">
+                    <div class="card total-card">
+                        <div class="card-icon">
+                            <i class='bx bx-gem'></i>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-label"><i class='bx bx-gem'></i> TOTAL DIAMOND</p>
+                            <h2 class="card-amount">25.000</h2>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p class="card-label">TOTAL PENGHASILAN</p>
-                        <h2 class="card-amount">25.000</h2>
+
+                    <div class="card total-card">
+                        <div class="card-icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-label"><i class='bx bx-wallet'></i> TOTAL PENGHASILAN</p>
+                            <h2 class="card-amount">Rp. 225.000.000</h2>
+                        </div>
                     </div>
-                </div>
 
-                <button class="export-btn">
-                    <i class='bx bx-download'></i>
-                    Export CSV
-                </button>
-            </div>
-
-            <div class="filter-section">
-                <div class="filter-header">
-                    <i class='bx bx-filter'></i>
-                    <h3>Filter Data</h3>
-                </div>
-
-                <div class="filter-tabs">
-                    <button class="filter-tab active">
-                        <i class='bx bx-calendar'></i>
-                        Tanggal Spesifik
+                    <button class="export-btn">
+                        <i class='bx bx-download'></i>
+                        Export CSV
                     </button>
-                    <button class="filter-tab">
-                        <i class='bx bx-range'></i>
-                        Range Tanggal
-                    </button>
                 </div>
 
-                <div class="filter-content">
-                    <div class="date-input-group">
-                        <input type="date" placeholder="Pilih Tanggal" class="date-input">
-                    </div>
-
-                    <div class="filter-row">
-                        <div class="filter-group">
-                            <label>Shift</label>
-                            <select class="filter-select">
-                                <option>Pilih shift</option>
-                                <option>Dini Hari (00.00 - 06.00)</option>
-                                <option>Siang (12.00 - 18.00)</option>
-                                <option>Malam (18.00 - 00.00)</option>
-                            </select>
+                <div class="top-section penghasilan-view" style="display: none;">
+                    <div class="card total-card">
+                        <div class="card-icon">
+                            <i class='bx bx-wallet'></i>
                         </div>
-
-                        <div class="filter-group">
-                            <label>Tim</label>
-                            <select class="filter-select">
-                                <option>Pilih tim</option>
-                                <option>Tim A</option>
-                                <option>Tim B</option>
-                                <option>Tim C</option>
-                            </select>
+                        <div class="card-content">
+                            <p class="card-label"><i class='bx bx-wallet'></i> TOTAL PENGHASILAN BULAN INI</p>
+                            <h2 class="card-amount">Rp. 225.000.000</h2>
                         </div>
-
-                        <div class="filter-group">
-                            <label>Status</label>
-                            <select class="filter-select">
-                                <option>Pilih status</option>
-                                <option>Menunggu</option>
-                                <option>Disetujui</option>
-                                <option>Ditolak</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="search-box">
-                        <i class='bx bx-search'></i>
-                        <input type="text" placeholder="Cari Nama Host..." class="search-input">
                     </div>
                 </div>
-            </div>
 
-            <div class="table-section">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>HOST & TIM</th>
-                            <th>SHIFT & WAKTU</th>
-                            <th>PENGHASILAN</th>
-                            <th>STATUS</th>
-                            <th>VERIFIKASI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="host-cell">
-                                <i class='bx bxs-user'></i>
-                                <div class="host-info">
-                                    <span class="host-name">Ghassan Ariq</span>
-                                    <span class="host-team">Provic</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="shift-info">
-                                    <i class='bx bx-time'></i>
-                                    <div>
-                                        <p class="shift-name">Dini Hari (00.00 - 06.00)</p>
-                                        <p class="shift-time">27/02/28 - 05:40</p>
+                <div class="filter-section dashboard-view">
+                    <div class="filter-header">
+                        <i class='bx bx-filter'></i>
+                        <h3>Filter Data</h3>
+                    </div>
+
+                    <div class="filter-content">
+                        <div class="date-input-group">
+                            <input type="date" placeholder="Pilih Tanggal" class="date-input">
+                        </div>
+
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label>Shift</label>
+                                <select class="filter-select">
+                                    <option>Pilih shift</option>
+                                    <option>Dini Hari (00.00 - 06.00)</option>
+                                    <option>Siang (12.00 - 18.00)</option>
+                                    <option>Malam (18.00 - 00.00)</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Tim</label>
+                                <select class="filter-select">
+                                    <option>Pilih tim</option>
+                                    <option>Tim A</option>
+                                    <option>Tim B</option>
+                                    <option>Tim C</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Status</label>
+                                <select class="filter-select">
+                                    <option>Pilih status</option>
+                                    <option>Menunggu</option>
+                                    <option>Disetujui</option>
+                                    <option>Ditolak</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="search-box">
+                            <i class='bx bx-search'></i>
+                            <input type="text" placeholder="Cari Nama Host..." class="search-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-section dashboard-view">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>HOST & TIM</th>
+                                <th>SHIFT & WAKTU</th>
+                                <th>TOTAL DIAMOND</th>
+                                <th>STATUS</th>
+                                <th>VERIFIKASI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="amount">💰 100.000</span>
-                            </td>
-                            <td>
-                                <span class="status pending">
-                                    <i class='bx bx-time-five'></i>
-                                    Menunggu
-                                </span>
-                            </td>
-                            <td>
-                                <span class="verify">
-                                    <i class='bx bx-show'></i>
-                                    Periksa
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="host-cell">
-                                <i class='bx bxs-user'></i>
-                                <div class="host-info">
-                                    <span class="host-name">Ghassan Ariq</span>
-                                    <span class="host-team">Provic</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="shift-info">
-                                    <i class='bx bx-time'></i>
-                                    <div>
-                                        <p class="shift-name">Siang (12.00 - 18.00)</p>
-                                        <p class="shift-time">27/02/28 - 08:30</p>
+                                </td>
+                                <td>
+                                    <div class="shift-info">
+                                        <i class='bx bx-time'></i>
+                                        <div>
+                                            <p class="shift-name">Dini Hari (00.00 - 06.00)</p>
+                                            <p class="shift-time">27/02/28 - 05:40</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="amount">💰 100.000</span>
-                            </td>
-                            <td>
-                                <span class="status pending">
-                                    <i class='bx bx-time-five'></i>
-                                    Menunggu
-                                </span>
-                            </td>
-                            <td>
-                                <span class="verify">
-                                    <i class='bx bx-show'></i>
-                                    Periksa
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="host-cell">
-                                <i class='bx bxs-user'></i>
-                                <div class="host-info">
-                                    <span class="host-name">Ghassan Ariq</span>
-                                    <span class="host-team">Provic</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="shift-info">
-                                    <i class='bx bx-time'></i>
-                                    <div>
-                                        <p class="shift-name">Dini Hari (00.00 - 06.00)</p>
-                                        <p class="shift-time">27/02/28 - 05:10</p>
+                                </td>
+                                <td>
+                                    <span class="amount">100.000</span>
+                                </td>
+                                <td>
+                                    <span class="status pending">
+                                        <i class='bx bx-time-five'></i>
+                                        Menunggu
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="verify">
+                                        <i class='bx bx-show'></i>
+                                        Periksa
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="amount">💰 10.000</span>
-                            </td>
-                            <td>
-                                <span class="status approved">
-                                    <i class='bx bx-check'></i>
-                                    Disetujui
-                                </span>
-                            </td>
-                            <td>
-                                <span class="verify">
-                                    <i class='bx bx-show'></i>
-                                    Periksa
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="host-cell">
-                                <i class='bx bxs-user'></i>
-                                <div class="host-info">
-                                    <span class="host-name">Ghassan Ariq</span>
-                                    <span class="host-team">Provic</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="shift-info">
-                                    <i class='bx bx-time'></i>
-                                    <div>
-                                        <p class="shift-name">Pagi (06.00 - 12.00)</p>
-                                        <p class="shift-time">27/02/28 - 04:38</p>
+                                </td>
+                                <td>
+                                    <div class="shift-info">
+                                        <i class='bx bx-time'></i>
+                                        <div>
+                                            <p class="shift-name">Siang (12.00 - 18.00)</p>
+                                            <p class="shift-time">27/02/28 - 08:30</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="amount">💰 5.000</span>
-                            </td>
-                            <td>
-                                <span class="status approved">
-                                    <i class='bx bx-check'></i>
-                                    Disetujui
-                                </span>
-                            </td>
-                            <td>
-                                <span class="verify">
-                                    <i class='bx bx-show'></i>
-                                    Periksa
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="host-cell">
-                                <i class='bx bxs-user'></i>
-                                <div class="host-info">
-                                    <span class="host-name">Ghassan Ariq</span>
-                                    <span class="host-team">Provic</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="shift-info">
-                                    <i class='bx bx-time'></i>
-                                    <div>
-                                        <p class="shift-name">Malam (18.00 - 00.00)</p>
-                                        <p class="shift-time">26/02/28 - 04:39</p>
+                                </td>
+                                <td>
+                                    <span class="amount">100.000</span>
+                                </td>
+                                <td>
+                                    <span class="status pending">
+                                        <i class='bx bx-time-five'></i>
+                                        Menunggu
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="verify">
+                                        <i class='bx bx-show'></i>
+                                        Periksa
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="amount">💰 10.000</span>
-                            </td>
-                            <td>
-                                <span class="status approved">
-                                    <i class='bx bx-check'></i>
-                                    Disetujui
-                                </span>
-                            </td>
-                            <td>
-                                <span class="verify">
-                                    <i class='bx bx-show'></i>
-                                    Periksa
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                                </td>
+                                <td>
+                                    <div class="shift-info">
+                                        <i class='bx bx-time'></i>
+                                        <div>
+                                            <p class="shift-name">Dini Hari (00.00 - 06.00)</p>
+                                            <p class="shift-time">27/02/28 - 05:10</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">10.000</span>
+                                </td>
+                                <td>
+                                    <span class="status approved">
+                                        <i class='bx bx-check'></i>
+                                        Disetujui
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="verify">
+                                        <i class='bx bx-show'></i>
+                                        Periksa
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="shift-info">
+                                        <i class='bx bx-time'></i>
+                                        <div>
+                                            <p class="shift-name">Pagi (06.00 - 12.00)</p>
+                                            <p class="shift-time">27/02/28 - 04:38</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">5.000</span>
+                                </td>
+                                <td>
+                                    <span class="status approved">
+                                        <i class='bx bx-check'></i>
+                                        Disetujui
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="verify">
+                                        <i class='bx bx-show'></i>
+                                        Periksa
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="shift-info">
+                                        <i class='bx bx-time'></i>
+                                        <div>
+                                            <p class="shift-name">Malam (18.00 - 00.00)</p>
+                                            <p class="shift-time">26/02/28 - 04:39</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">10.000</span>
+                                </td>
+                                <td>
+                                    <span class="status approved">
+                                        <i class='bx bx-check'></i>
+                                        Disetujui
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="verify">
+                                        <i class='bx bx-show'></i>
+                                        Periksa
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-section penghasilan-view" style="display: none;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>HOST & TIM</th>
+                                <th>TOTAL DIAMOND</th>
+                                <th>TOTAL JAM</th>
+                                <th>PENGHASILAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Ghassan Ariq</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">150.000</span>
+                                </td>
+                                <td>
+                                    <span>150 Jam</span>
+                                </td>
+                                <td>
+                                    <span class="amount">Rp. 12.000.000</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Rafi Abdillah</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">450.000</span>
+                                </td>
+                                <td>
+                                    <span>132 Jam</span>
+                                </td>
+                                <td>
+                                    <span class="amount">Rp. 10.500.000</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Dina Kusuma</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">250.000</span>
+                                </td>
+                                <td>
+                                    <span>109 Jam</span>
+                                </td>
+                                <td>
+                                    <span class="amount">Rp. 9.625.000</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Budi Santoso</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">720.000</span>
+                                </td>
+                                <td>
+                                    <span>123 Jam</span>
+                                </td>
+                                <td>
+                                    <span class="amount">Rp. 11.750.000</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="host-cell">
+                                    <i class='bx bxs-user'></i>
+                                    <div class="host-info">
+                                        <span class="host-name">Maya Pratama</span>
+                                        <span class="host-team">Provic</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="amount">455.000</span>
+                                </td>
+                                <td>
+                                    <span>117 Jam</span>
+                                </td>
+                                <td>
+                                    <span class="amount">Rp. 11.375.000</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
         </div>
     </div>
 
     <script>
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                filterTabs.forEach(t => t.classList.remove('active'));
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
+                
+                const tabName = this.getAttribute('data-tab');
+                
+                document.querySelectorAll('.dashboard-view').forEach(el => {
+                    el.style.display = tabName === 'dashboard' ? '' : 'none';
+                });
+                
+                document.querySelectorAll('.penghasilan-view').forEach(el => {
+                    el.style.display = tabName === 'penghasilan' ? '' : 'none';
+                });
+
+                const titleEl = document.querySelector('.tab-content-title');
+                if (titleEl) {
+                    titleEl.textContent = tabName === 'penghasilan' ? 'Penghasilan' : 'Finance Dashboard';
+                }
             });
         });
     </script>
