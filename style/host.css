@@ -53,6 +53,8 @@ body {
   align-items: center;
   padding: 16px 32px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 999;
 }
 
 .topbar .logo img {
@@ -61,9 +63,11 @@ body {
 
 /* ===================== PROFILE SECTION ===================== */
 .profile-section {
-  display: flex;
+display: flex;
   align-items: center;
   gap: 16px;
+  position: relative; 
+  cursor: pointer;
 }
 
 .profile-text {
@@ -84,16 +88,86 @@ body {
 }
 
 .avatar {
-  width: 48px;
+width: 48px;
   height: 48px;
-  background-color: #d9d9d9;
-  border: 1px solid #1a1a1a;
+  background-color: #e0e0e0;
+  border: 1px solid #ffffff;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.avatar i {
+  font-size: 32px;
+  color: #888;
+  margin-top: 8px;
 }
 
 .icon-dropdown {
   font-size: 20px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 180px;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); 
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item i {
+  font-size: 18px;
+}
+
+.dropdown-item:hover {
+  color: var(--orange-primary);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 4px 0;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-danger:hover {
+  color: #dc3545;
 }
 
 /* ===================== MAIN LAYOUT ===================== */
@@ -244,6 +318,31 @@ body {
 
 .card-silver {
   background: linear-gradient(135deg, #e2e2e2 0%, #a5a5a5 100%);
+}
+
+.card-full {
+  grid-column: 1 / -1; 
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #e9cbfb 0%, #a855f7 100%);
+}
+.card-purple .stat-value i {
+  color: #7e22ce;
+}
+
+.card-red {
+  background: linear-gradient(135deg, #ffd3c9 0%, #ef4444 100%);
+}
+.card-red .stat-value i {
+  color: #b91c1c;
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #bfdbfe 0%, #3b82f6 100%);
+}
+.card-blue .stat-value i {
+  color: #1d4ed8;
 }
 
 .stat-card h3 {
@@ -472,21 +571,18 @@ background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   font-size: 14px;
-  /* Dibuat agak transparan agar menyatu dengan glassmorphism modal */
   background: rgba(255, 255, 255, 0.8); 
   color: var(--text-dark);
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
-/* Efek saat form sedang diketik / dipilih */
 .form-control:focus {
   outline: none;
   border-color: var(--orange-primary);
   box-shadow: 0 0 0 4px rgba(255, 128, 0, 0.15); 
 }
 
-/* Styling Khusus Input Diamond (dengan Ikon) */
 .input-icon-wrapper {
   position: relative;
   display: flex;
@@ -501,16 +597,13 @@ background: rgba(255, 255, 255, 0.4);
 }
 
 .form-control.with-icon {
-  padding-left: 44px; /* Memberi ruang agar teks tidak menabrak ikon */
-}
+  padding-left: 44px;
 
-/* Styling Khusus Input File (Upload Foto) */
 .file-input {
   padding: 10px;
   cursor: pointer;
 }
 
-/* Mengubah gaya tombol "Choose File" bawaan browser */
 .file-input::file-selector-button {
   background: var(--orange-light);
   border: 1px solid var(--orange-primary);
@@ -555,9 +648,8 @@ background: rgba(255, 255, 255, 0.4);
 
 .success-icon {
   font-size: 80px;
-  color: #8ed69e; /* Warna hijau pastel, konsisten dengan icon history */
+  color: #8ed69e;
   margin-bottom: 16px;
-  /* Animasi pop in ringan saat muncul */
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 

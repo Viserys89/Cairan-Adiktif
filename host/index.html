@@ -9,29 +9,57 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="dashboard">
-<header class="topbar">
-        <div class="logo-area" style="display: flex; align-items: center; gap: 12px;">
-          <i class='bx bx-menu menu-toggle' id="mobile-menu-btn" onclick="toggleSidebar()" style="display: none; font-size: 28px; cursor: pointer;"></i>
-          
+      <header class="topbar">
+        <div
+          class="logo-area"
+          style="display: flex; align-items: center; gap: 12px"
+        >
+          <i
+            class="bx bx-menu menu-toggle"
+            id="mobile-menu-btn"
+            onclick="toggleSidebar()"
+            style="display: none; font-size: 28px; cursor: pointer"
+          ></i>
+
           <div class="logo">
             <img src="../assets/logovermiloren.png" alt="Vermilion Logo" />
           </div>
         </div>
-
-        <div class="profile-section">
+        <div class="profile-section" onclick="toggleDropdown(event)">
           <div class="profile-text">
             <span class="name">Vicky</span>
             <span class="role">Host</span>
           </div>
-          <div class="avatar"></div>
+
+          <div class="avatar">
+            <i class="bx bx-user"></i>
+          </div>
           <i class="bx bx-chevron-down icon-dropdown"></i>
+
+          <div class="dropdown-menu" id="profileDropdown">
+            <a href="profil.html" class="dropdown-item">
+              <i class="bx bx-user-circle"></i>
+              Profil
+            </a>
+            <a href="setting.html" class="dropdown-item">
+              <i class="bx bx-cog"></i>
+              Setting
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" class="dropdown-item text-danger">
+              <i class="bx bx-log-out"></i>
+              Logout
+            </a>
+          </div>
         </div>
       </header>
-
       <div class="main-layout">
         <aside class="sidebar">
           <h3 class="menu-title">Menu</h3>
@@ -50,17 +78,18 @@
               <li class="nav-item">
                 <i class="fa-solid fa-bullhorn nav-icon-fa"></i> Pengaduan
               </li>
-              <li class="nav-item" >
+              <li class="nav-item">
                 <i class="fa solid fa-file-pen nav-icon-fa"></i> Request
               </li>
-              <li class="nav-item" >
+              <li class="nav-item">
                 <i class="fa-solid fa-address-book nav-icon-fa"></i> Contact
               </li>
-              <li class="nav-item" >
-                <i class="fa-solid fa-gear nax-icon-fa"></i>  Pengaturan
+              <li class="nav-item">
+                <i class="fa-solid fa-gear nax-icon-fa"></i> Pengaturan
               </li>
-              <li class="nav-item" >
-                <i class="fa-solid fa-right-from-bracket nav-icon-fa"></i> <a href="../login.html">Keluar</a> 
+              <li class="nav-item">
+                <i class="fa-solid fa-right-from-bracket nav-icon-fa"></i>
+                <a href="../login.html">Keluar</a>
               </li>
             </ul>
           </nav>

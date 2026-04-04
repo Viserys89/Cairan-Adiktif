@@ -1,5 +1,5 @@
 // ==========================================
-// 1. FUNGSI UNTUK TOGGLE SIDEBAR (MOBILE)
+// 1. FUNGSI HEADBAR DAN SIDEBAR
 // ==========================================
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
@@ -7,6 +7,26 @@ function toggleSidebar() {
     sidebar.classList.toggle('show');
   }
 }
+
+// Fungsi untuk membuka/menutup dropdown
+  function toggleDropdown(event) {
+    event.stopPropagation(); // Mencegah klik menyebar ke elemen lain
+    const dropdown = document.getElementById('profileDropdown');
+    dropdown.classList.toggle('show');
+  }
+
+  // Fungsi untuk menutup dropdown otomatis jika user mengklik sembarang tempat di luar menu
+  window.onclick = function(event) {
+    if (!event.target.closest('.profile-section')) {
+      const dropdowns = document.getElementsByClassName("dropdown-menu");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 
 // ==========================================
 // 2. FUNGSI UNTUK PINDAH HALAMAN (SPA)

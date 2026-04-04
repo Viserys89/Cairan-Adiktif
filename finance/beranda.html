@@ -1,0 +1,138 @@
+<div class="header">
+  <h1>
+    <span class="tab-content-title">Finance Dashboard</span>
+    <i class="bx bx-gem"></i>
+  </h1>
+  <p class="header-subtitle">
+    Verifikasi dan kelola pendapatan host dengan filter dan export data.
+  </p>
+</div>
+
+<div class="top-section">
+  <div class="card total-card">
+    <div class="card-icon">
+      <i class="bx bx-gem"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-label"><i class="bx bx-gem"></i> TOTAL DIAMOND</p>
+      <h2 class="card-amount">25.000</h2>
+    </div>
+  </div>
+
+  <div class="card total-card">
+    <div class="card-icon">
+      <i class="bx bx-wallet"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-label"><i class="bx bx-wallet"></i> TOTAL PENGHASILAN</p>
+      <h2 class="card-amount">Rp. 225.000.000</h2>
+    </div>
+  </div>
+
+  <button class="export-btn">
+    <i class="bx bx-download"></i>
+    Export CSV
+  </button>
+</div>
+
+<div class="filter-section">
+  <div class="filter-header">
+    <i class="bx bx-filter"></i>
+    <h3>Filter Data</h3>
+  </div>
+
+  <div class="filter-content">
+    <div class="date-input-group">
+      <input type="date" class="date-input" />
+    </div>
+
+    <div class="filter-row">
+      <div class="filter-group">
+        <label>Shift</label>
+        <select class="filter-select">
+          <option>Pilih shift</option>
+          <option>00.00 - 06.00</option>
+          <option>06.00 - 12.00</option>
+          <option>12.00 - 18.00</option>
+          <option>18.00 - 00.00</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Tim</label>
+        <select class="filter-select">
+          <option>Pilih tim</option>
+          <option>Tim A</option>
+          <option>Tim B</option>
+          <option>Tim C</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+        <select class="filter-select">
+          <option>Pilih status</option>
+          <option>Menunggu</option>
+          <option>Disetujui</option>
+          <option>Ditolak</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <i class="bx bx-search"></i>
+      <input type="text" placeholder="Cari Nama Host..." class="search-input" />
+    </div>
+  </div>
+</div>
+
+<div class="table-section">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>HOST & TIM</th>
+        <th>SHIFT & WAKTU</th>
+        <th>TOTAL DIAMOND</th>
+        <th>STATUS</th>
+        <th>VERIFIKASI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>
+  <div class="host-cell">
+    <i class="bx bxs-user"></i>
+    <div class="host-info">
+      <span class="host-name">Ghassan Ariq</span>
+      <span class="host-team">Provic</span>
+    </div>
+  </div>
+</td>
+        <td>
+          <div class="shift-info">
+            <i class="bx bx-time"></i>
+            <div>
+              <p class="shift-name">Dini Hari (00.00 - 06.00)</p>
+              <p class="shift-time">27/02/28 - 05:40</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span class="amount">100.000</span>
+        </td>
+        <td>
+          <span class="status pending">
+            <i class="bx bx-time-five"></i>
+            Menunggu
+          </span>
+        </td>
+        <td>
+          <span class="verify" style="cursor: pointer">
+            <i class="bx bx-show"></i>
+            Periksa
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
