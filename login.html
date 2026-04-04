@@ -18,15 +18,15 @@
         <div class="logo-container">
             <img src="./assets/vermil-logo.png" alt="Vermil Logo" class="logo">
         </div>
-        <form action="">
+        <form action="" id="loginForm">
             <h2>Login</h2>
             <p class="subtitle">Silahkan login untuk akses sistem</p>
             <div class="input-box">
-                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Email" id="email" required>
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" id="password" required>
                 <i class="bx bx-lock"></i>
             </div>
             <div class="remember-forgot">
@@ -36,8 +36,9 @@
             <button type="submit" class="btn">Login</button>
         </form>
         <div class="register-link">
-            <p>Don't have an account? <a href="./contact.html">Register here</a></p>
+            <p>Don't have an account? <a href="./contact.html" >Register here</a></p>
         </div>
     </div>
+    <script src="./control/main.js"></script>
 </body>
 </html>

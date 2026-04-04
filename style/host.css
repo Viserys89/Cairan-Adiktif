@@ -15,7 +15,10 @@
   --border-radius: 16px;
   --shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* ===================== BODY ===================== */
 body {
   margin: 0;
@@ -165,7 +168,15 @@ body {
 .nav-icon {
   font-size: 24px;
   color: #1a1a1a;
+  align-items: center;
 }
+
+.nav-icon-fa {
+  font-size: 19px;
+  color: #1a1a1a;
+  align-items: center;
+}
+
 
 /* ===================== CONTENT AREA ===================== */
 .content {
@@ -276,27 +287,320 @@ body {
   bottom: -10px;
 }
 
+/* ===================== Content Laporan ===================== */
+ .input-laporan-card {
+background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-laporan-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.btn-primary {
+  background-color: var(--orange-primary);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* --- History Section --- */
+.history-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.section-header h3 {
+  font-size: 20px;
+  font-weight: 500;
+  display: inline-block;
+  border-bottom: 2px solid var(--text-dark);
+  padding-bottom: 4px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: var(--border-radius);
+  /* Gradasi halus dari warna putih/krem ke orange muda sesuai desain Figma */
+  background: linear-gradient(to right, #fcf2ea 0%, #f6c8a5 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.history-text h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.history-text p {
+  font-size: 12px;
+  color: var(--text-dark);
+}
+
+.check-icon {
+  font-size: 28px;
+  color: #8ed69e; /* Warna hijau pastel/lembut */
+}
+
+/* ===================== MODAL GLASSMORPHISM ===================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  
+  /* Animasi Sembunyi/Muncul */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  /* Efek Glassmorphism yang konsisten dengan sidebar/topbar */
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 24px;
+  
+  /* Animasi meluncur dari atas */
+  transform: translateY(-30px);
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 12px;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-icon {
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-gray);
+  transition: color 0.2s;
+}
+
+.close-icon:hover {
+  color: #ff3333;
+}
+
+/* ===================== FORM STYLING ===================== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.text-sm {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-gray);
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  font-size: 14px;
+  /* Dibuat agak transparan agar menyatu dengan glassmorphism modal */
+  background: rgba(255, 255, 255, 0.8); 
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+/* Efek saat form sedang diketik / dipilih */
+.form-control:focus {
+  outline: none;
+  border-color: var(--orange-primary);
+  box-shadow: 0 0 0 4px rgba(255, 128, 0, 0.15); 
+}
+
+/* Styling Khusus Input Diamond (dengan Ikon) */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 20px;
+  color: var(--orange-primary);
+}
+
+.form-control.with-icon {
+  padding-left: 44px; /* Memberi ruang agar teks tidak menabrak ikon */
+}
+
+/* Styling Khusus Input File (Upload Foto) */
+.file-input {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Mengubah gaya tombol "Choose File" bawaan browser */
+.file-input::file-selector-button {
+  background: var(--orange-light);
+  border: 1px solid var(--orange-primary);
+  color: var(--orange-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all 0.2s;
+}
+
+.file-input::file-selector-button:hover {
+  background: var(--orange-primary);
+  color: white;
+}
+
+.file-help-text {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-top: 4px;
+}
+
+.file-error {
+  color: #e63946; /* Merah untuk peringatan error */
+  font-weight: 600;
+}
+
+.mt-4 {
+  margin-top: 24px;
+}
+
+/* ===================== SUCCESS MODAL STYLING ===================== */
+.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.success-icon {
+  font-size: 80px;
+  color: #8ed69e; /* Warna hijau pastel, konsisten dengan icon history */
+  margin-bottom: 16px;
+  /* Animasi pop in ringan saat muncul */
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.success-text {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* ===================== RESPONSIVE / MEDIA QUERIES ===================== */
 
-/* --- TABLET (Layar medium, maks 992px) --- */
 @media (max-width: 992px) {
   .sidebar {
-    width: 220px; /* Sidebar sedikit diperkecil */
+    width: 220px;
     padding: 24px 16px;
   }
   
   .main-layout {
-    gap: 16px; /* Jarak antar kolom dikurangi */
+    gap: 16px;
   }
   
   .topbar {
     padding: 16px 24px;
   }
 }
-
-/* --- MOBILE (Layar kecil, maks 768px) --- */
 @media (max-width: 768px) {
-  /* 1. Sesuaikan jarak layar */
   body {
     padding: 16px;
   }
@@ -305,50 +609,42 @@ body {
     gap: 16px;
   }
 
-  /* 2. Penyesuaian Topbar */
   .topbar {
     padding: 12px 16px;
   }
   
   .profile-text {
-    display: none; /* Sembunyikan teks "Vicky, Host" agar tidak sesak, sisa avatar saja */
+    display: none
   }
 
   .logo img {
-    height: 28px; /* Perkecil logo sedikit */
+    height: 28px;
   }
 
-  /* Munculkan tombol hamburger */
   .menu-toggle {
     display: block !important; 
   }
 
-  /* 3. Ubah Sidebar menjadi Off-canvas (Melayang di atas konten) */
   .sidebar {
     position: fixed;
     top: 0;
-    left: -100%; /* Sembunyikan di luar layar sebelah kiri */
+    left: -100%;
     height: 100vh;
     width: 260px;
-    z-index: 1000; /* Pastikan di atas semuanya */
-    border-radius: 0 20px 20px 0; /* Ujung kanan dibuat membulat */
-    transition: left 0.3s ease-in-out; /* Animasi saat muncul */
-    
-    /* Agar desain glassmorphism-nya makin pekat menutupi konten di bawahnya */
+    z-index: 1000;
+    border-radius: 0 20px 20px 0; 
+    transition: left 0.3s ease-in-out; 
     background: rgba(255, 255, 255, 0.7); 
   }
-
-  /* Class ini akan ditambahkan oleh JavaScript saat tombol hamburger diklik */
   .sidebar.show {
     left: 0;
   }
 
-  /* 4. Ubah Grid Konten menjadi 1 Kolom */
   .stats-container {
-    grid-template-columns: 1fr; /* Dari 1fr 1fr menjadi 1fr (atas-bawah) */
+    grid-template-columns: 1fr; 
   }
   
   .content {
-    padding-right: 0; /* Hapus padding kanan agar area baca lebih luas */
+    padding-right: 0;
   }
 }
