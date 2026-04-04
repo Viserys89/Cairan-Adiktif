@@ -1,0 +1,354 @@
+/* ===================== GLOBAL RESET ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ===================== ROOT VARIABLES ===================== */
+:root {
+  --orange-primary: #ff8000;
+  --orange-light: #fdf4eb;
+  --text-dark: #1a1a1a;
+  --text-gray: #4a4a4a;
+  --border-radius: 16px;
+  --shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ===================== BODY ===================== */
+body {
+  margin: 0;
+  padding: 24px;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #ff8000 0%, #ffffff 30%, #ffffff 100%);
+  color: var(--text-dark);
+}
+
+/* ===================== DASHBOARD LAYOUT ===================== */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+
+/* ===================== TOPBAR ===================== */
+.topbar {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  flex-shrink: 0;
+}
+
+.topbar .logo img {
+  height: 36px;
+}
+
+/* ===================== PROFILE SECTION ===================== */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.profile-text .name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.profile-text .role {
+  color: #c84615;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #d9d9d9;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+}
+
+.icon-dropdown {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===================== MAIN LAYOUT ===================== */
+.main-layout {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: 260px;
+  padding: 32px 24px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  top: 120px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.menu-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e6d0be;
+  margin-bottom: 24px;
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 12px 16px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  color: var(--text-dark);
+}
+
+.nav-item.active {
+  font-weight: 600;
+}
+
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 4px;
+  background-color: var(--orange-primary);
+  border-radius: 4px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+/* ===================== CONTENT AREA ===================== */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 12px;
+  padding-bottom: 24px;
+}
+
+/* Scrollbar */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(240, 142, 62, 0.5);
+  border-radius: 10px;
+}
+
+/* ===================== TEXT & GREETING ===================== */
+.greeting {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.highlight {
+  color: var(--orange-primary);
+  font-weight: 600;
+}
+
+/* ===================== CARD ===================== */
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+/* ===================== STATS SECTION ===================== */
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-orange {
+  background: linear-gradient(135deg, #f8cda8 0%,  var(--orange-primary) 100%);
+}
+
+.card-silver {
+  background: linear-gradient(135deg, #e2e2e2 0%, #a5a5a5 100%);
+}
+
+.stat-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.stat-value {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.stat-value i {
+  font-size: 32px;
+  color: #ff9100;
+}
+
+.card-silver .stat-value i {
+  color: #666;
+}
+
+/* ===================== BACKGROUND ELEMENT ===================== */
+.bg-watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 150px;
+  opacity: 0.15;
+  z-index: 1;
+  transform: rotate(-15deg);
+  color: #000;
+}
+
+.medal-adjust {
+  right: -10px;
+  bottom: -10px;
+}
+
+/* ===================== RESPONSIVE / MEDIA QUERIES ===================== */
+
+/* --- TABLET (Layar medium, maks 992px) --- */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 220px; /* Sidebar sedikit diperkecil */
+    padding: 24px 16px;
+  }
+  
+  .main-layout {
+    gap: 16px; /* Jarak antar kolom dikurangi */
+  }
+  
+  .topbar {
+    padding: 16px 24px;
+  }
+}
+
+/* --- MOBILE (Layar kecil, maks 768px) --- */
+@media (max-width: 768px) {
+  /* 1. Sesuaikan jarak layar */
+  body {
+    padding: 16px;
+  }
+  
+  .dashboard {
+    gap: 16px;
+  }
+
+  /* 2. Penyesuaian Topbar */
+  .topbar {
+    padding: 12px 16px;
+  }
+  
+  .profile-text {
+    display: none; /* Sembunyikan teks "Vicky, Host" agar tidak sesak, sisa avatar saja */
+  }
+
+  .logo img {
+    height: 28px; /* Perkecil logo sedikit */
+  }
+
+  /* Munculkan tombol hamburger */
+  .menu-toggle {
+    display: block !important; 
+  }
+
+  /* 3. Ubah Sidebar menjadi Off-canvas (Melayang di atas konten) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Sembunyikan di luar layar sebelah kiri */
+    height: 100vh;
+    width: 260px;
+    z-index: 1000; /* Pastikan di atas semuanya */
+    border-radius: 0 20px 20px 0; /* Ujung kanan dibuat membulat */
+    transition: left 0.3s ease-in-out; /* Animasi saat muncul */
+    
+    /* Agar desain glassmorphism-nya makin pekat menutupi konten di bawahnya */
+    background: rgba(255, 255, 255, 0.7); 
+  }
+
+  /* Class ini akan ditambahkan oleh JavaScript saat tombol hamburger diklik */
+  .sidebar.show {
+    left: 0;
+  }
+
+  /* 4. Ubah Grid Konten menjadi 1 Kolom */
+  .stats-container {
+    grid-template-columns: 1fr; /* Dari 1fr 1fr menjadi 1fr (atas-bawah) */
+  }
+  
+  .content {
+    padding-right: 0; /* Hapus padding kanan agar area baca lebih luas */
+  }
+}
